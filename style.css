@@ -1,0 +1,22 @@
+.highScore {
+position: absolute;
+top: 15px;
+left: 15px;
+}
+
+.timerValue {
+position: absolute;
+top: 15px;
+right: 15px;
+}
+
+.landing {
+    text-align: center;
+
+}
+
+.container {
+    margin: 75px auto;
+    max-width: 750px;
+    
+}
