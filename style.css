@@ -4,24 +4,26 @@
 }
 
 a {
-    color: lime;
+    color: red;
     text-decoration: none;
     transition: color .1s;
 }
 a:hover {
-    color:skyblue;
+    color: blue;
 }
 
 .highScore {
+font-size: 24px; 
 position: absolute;
 top: 15px;
 left: 15px;
 }
 
 .timerValue {
+font-size: 24px;    
 position: absolute;
-top: 15px;
-right: 15px;
+top: 30px;
+right: 30px;
 }
 
 .landing {
@@ -50,4 +52,12 @@ right: 15px;
 
 #starterButton:hover {
     background-color: tomato;
+}
+
+.hide {
+    display: none;
+}
+
+.answers button {
+    display: block;
 }

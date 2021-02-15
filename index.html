@@ -13,7 +13,10 @@
 <div class= "highScore"> <a href="hs.html">High Scores</a></div>
 
 <!-- <div>Top right = timer value</div> -->
-<div class = "timerValue">Time: <span id= "timer">60</span></div>
+<div class = "timerValue">Time: <span id= "timer">60</span>
+<script>var myVar = setInterval(myTimer, 1000);
+    </script>
+</div>
 
 <!-- Create a starter DIV -->
 <div class= "container">
@@ -27,6 +30,21 @@
         </p>
         <button id= "starterButton">START QUIZ</button>
     </div>
+    <div id="quiz" class="hide">
+        <h2 id="question"></h2>
+        <div id="answers" class="answers"></div>
+    </div>
+
+    <!-- End of Quiz -->
+    <div id="quiz-end" class="hide">
+        <h2>Finished</h2>
+        <p>Your score is: <span id="end-score"></span></p>
+        <p>Enter Inititals: <input= type="text" id="initials" max="4">
+        <button id="initial-submit">Submit</button></p>
+    </div>
+    <!-- <button id="submit">Results</button> -->
+
+    <div id="results"></div>
 </div>
 <!-- Initially this will be visable -->
 
@@ -38,5 +56,8 @@
 
 <!-- Quiz ends DIV. Either run out of time or questions. Submit button to submit initials with score into local storage -->
     <script src="javascript.js"></script>
+
+
+
 </body>
 </html>
