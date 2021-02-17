@@ -124,6 +124,7 @@ let questionElem = document.getElementById("question");
 let initialSubmitBtn = document.getElementById("initial-submit");
 let starterBtn = document.getElementById("starterButton");
 let initialsElem = document.getElementById("initials");
+let scoreElem = document.getElementById("highScore")
 
 function startquiz () {
     // hide quiz start screen
@@ -187,8 +188,9 @@ function startquiz () {
     // submitButton.onclick = function(){
 	// 	showResults(questions, quizContainer, resultsContainer);
 	// }
+        // Local Storage
+        let playerScore = localStorage.getItem(scoreElem);
 
-    
 
     // function showQuestions
 
