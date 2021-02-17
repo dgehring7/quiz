@@ -1,48 +1,115 @@
 
 var quizQuestions = [
     {
-    Question: "Q1",
+    Question: "1) This GIT command notes a change to a local repo",
     Answers: [
-        "A: Who",
-        "B: What",
-        "C: Where",
-        "D: Why"
+        "A: mkdir",
+        "B: git commit -m",
+        "C: git add",
+        "D: cd .."
     ],
-    correctAnswer: "C: Where"
+    correctAnswer: "B: git commit -m"
 },
 
 {
-    Question: "Q2",
+    Question: "2) <br> tag is a command for a/an",
     Answers: [
-        "A: Who",
-        "B: What",
-        "C: Where",
-        "D: Why"
+        "A: line break",
+        "B: image",
+        "C: heading",
+        "D: link"
     ],
-    correctAnswer: "D: Why"
+    correctAnswer: "A: line break"
 },
 
 {
-    Question: "Q3",
+    Question: "3) In the array [Winter, Spring, Summer, Fall], value 1 will return",
     Answers: [
-        "A: Who",
-        "B: What",
-        "C: Where",
-        "D: Why"
+        "A: Winter",
+        "B: Spring",
+        "C: Summer",
+        "D: Fall"
     ],
-    correctAnswer: "A: Who"
+    correctAnswer: "B: Spring"
 },
 
 {
-    Question: "Q4",
+    Question: "4) This element has no closing tag",
     Answers: [
-        "A: Who",
-        "B: What",
-        "C: Where",
-        "D: Why"
+        "A: <img>",
+        "B: <h1>",
+        "C: <div>",
+        "D: <header>"
     ],
-    correctAnswer: "B: What"
-}
+    correctAnswer: "A: <img>"
+},
+
+{
+Question: "5) (.timerElem) tell you that timerElem is a/an",
+Answers: [
+    "A: header",
+    "B: image",
+    "C: id",
+    "D: class"
+],
+correctAnswer: "D: class"
+},
+
+{
+    Question: "6) Using a/an _____ is like asking the user a yes or no question on a webpage",
+    Answers: [
+        "A: confirm",
+        "B: alert",
+        "C: for loop",
+        "D: if/else statement"
+    ],
+    correctAnswer: "A: confirm"
+    },
+
+{
+    Question: "7) This is NOT a basic type to represent values",
+    Answers: [
+        "A: Boolean",
+        "B: Number",
+        "C: Class",
+        "D: String"
+    ],
+    correctAnswer: "C: Class"
+},
+
+{
+    Question: "8) We use a/an ____ to access information on the internet",
+    Answers: [
+        "A: repository",
+        "B: browser",
+        "C: VS Code",
+        "D: MS Paint"
+    ],
+    correctAnswer: "B: browser"
+},
+
+{
+    Question: "9) classQuiz is an example of",
+    Answers: [
+        "A: if/else statement",
+        "B: Var (variable) name",
+        "C: camelcase",
+        "D: Both B and C"
+    ],
+    correctAnswer: "A: <img>"
+},
+
+{
+    Question: "10) We use this to check for bugs in the debugger",
+    Answers: [
+        "A: .debug",
+        "B: <div>",
+        "C: alert",
+        "D: console.log"
+    ],
+    correctAnswer: "D: console.log"
+    },
+
 ];
 
 // Set up variables for DOM elements and timer
@@ -62,24 +129,76 @@ function startquiz () {
     // hide quiz start screen
     let landingPageElem = document.getElementById("landingPage");
     landingPageElem.setAttribute("class", "hide");
+
+    // Show questions div
+    quizElem.removeAttribute("class");
+
+    // Start quiz timer
+    timerId = setInterval(timerTick, 1000);
+
+    // Show starting time
+    timerElem.textContent = timeRemaining;
+
+    // Calling Generate question
+    generateQuestion();
 }
-function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
-    function generateQuestions () {        
+    function generateQuestion () {        
+        let newQuestion = quizQuestions[questionIndex];
+        questionElem.textContent= newQuestion.Question;
+        answersElem.innerHTML = "";
 
+        newQuestion.Answers.forEach(function(ans, i) {
+            // Create button for each choice
+            let ansElem = document.createElement("Button");
+            ansElem.setAttribute("class", "ans");
+            ansElem.setAttribute("value", ans);
+            ansElem.textContent = i + 1 + ". " + ans;
+
+            ansElem.onclick= answerClick;
+            answersElem.appendChild(ansElem);
+            console.log(ans);
+        });
     }
-    function generateResults (questions, quizContainer, resultsContainer) {
+        function answerClick() {
+            if (this.value !== quizQuestions[questionIndex].correctAnswer) {
+                timeRemaining -= 10;
+                if (timerElem < 0) {
+                    clearInterval(answerClick);
+                    document.getElementById("timer").innerHTML = "EXPIRED";
+                }
+                timerElem.textContent = timeRemaining;
+                // try to display incorrect answer
 
-    }
-    showQuestions(questions, quizContainer);
+            }
+            else {
+                // try to indicate correct answer
+                console.log("correctAnswer");
+            }
+            questionIndex++;
+            
+        }
 
-    submitButton.onclick = function(){
-		showResults(questions, quizContainer, resultsContainer);
-	}
+    // function generateResults (questions, quizContainer, resultsContainer) {
+
+    // }
+    // showQuestions(questions, quizContainer);
+
+    // submitButton.onclick = function(){
+	// 	showResults(questions, quizContainer, resultsContainer);
+	// }
 
     
 
     // function showQuestions
 
+
+function timerTick() {
+    timeRemaining--;
+    timerElem.textContent = timeRemaining;
+ if (timeRemaining <= 0) {
+    endQuiz();
+    }
+
 }
-starterBtn.onclick=startquiz;
+starterBtn.onclick = startquiz;
