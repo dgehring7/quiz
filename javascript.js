@@ -198,7 +198,7 @@ function startquiz () {
 function timerTick() {
     timeRemaining--;
     timerElem.textContent = timeRemaining;
- if (timeRemaining <= 0) {
+ if (timeRemaining >= 0) {
     endQuiz();
     }
 
