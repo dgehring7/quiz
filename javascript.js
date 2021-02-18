@@ -8,7 +8,7 @@ var quizQuestions = [
         "C: git add",
         "D: cd .."
     ],
-    correctAnswer: "B: git commit -m"
+
 },
 
 {
@@ -19,7 +19,7 @@ var quizQuestions = [
         "C: heading",
         "D: link"
     ],
-    correctAnswer: "A: line break"
+
 },
 
 {
@@ -30,7 +30,7 @@ var quizQuestions = [
         "C: Summer",
         "D: Fall"
     ],
-    correctAnswer: "B: Spring"
+ 
 },
 
 {
@@ -41,7 +41,7 @@ var quizQuestions = [
         "C: <div>",
         "D: <header>"
     ],
-    correctAnswer: "A: <img>"
+
 },
 
 {
@@ -52,7 +52,7 @@ Answers: [
     "C: id",
     "D: class"
 ],
-correctAnswer: "D: class"
+
 },
 
 {
@@ -63,7 +63,7 @@ correctAnswer: "D: class"
         "C: for loop",
         "D: if/else statement"
     ],
-    correctAnswer: "A: confirm"
+ 
     },
 
 {
@@ -74,7 +74,7 @@ correctAnswer: "D: class"
         "C: Class",
         "D: String"
     ],
-    correctAnswer: "C: Class"
+
 },
 
 {
@@ -85,7 +85,7 @@ correctAnswer: "D: class"
         "C: VS Code",
         "D: MS Paint"
     ],
-    correctAnswer: "B: browser"
+
 },
 
 {
@@ -96,7 +96,7 @@ correctAnswer: "D: class"
         "C: camelcase",
         "D: Both B and C"
     ],
-    correctAnswer: "A: <img>"
+ 
 },
 
 {
@@ -107,11 +107,12 @@ correctAnswer: "D: class"
         "C: alert",
         "D: console.log"
     ],
-    correctAnswer: "D: console.log"
+
     },
 
 ];
 
+let correctAnswer2 = ["B: git commit -m", "A: line break", "B: Spring", "A: <img>", "D: class", "A: confirm", "C: Class", "B: browser", "A: <img>", "D: console.log"];
 // Set up variables for DOM elements and timer
 let questionIndex = 0;
 let timeRemaining = 120;
@@ -150,6 +151,7 @@ function startquiz () {
         answersElem.innerHTML = "";
 
         newQuestion.Answers.forEach(function(ans, i) {
+            
             // Create button for each choice
             let ansElem = document.createElement("Button");
             ansElem.setAttribute("class", "ans");
